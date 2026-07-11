@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMACHEBAAZ APPAREL // PRODUCTION FRONTEND</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Premium Header with Interactive Action Anchors -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logo" onclick="toggleViewSegment('catalog')">TAMACHEBAAZ</div>
+            
+            <div class="header-utilities">
+                <!-- Track Order Icon Link -->
+                <button class="util-btn" id="nav-btn-track" onclick="toggleViewSegment('track')" title="Track Orders">
+                    <svg viewBox="0 0 24 24" class="icon-svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </button>
+                <!-- Wishlist Toggle -->
+                <button class="util-btn" id="nav-btn-wishlist" onclick="toggleViewSegment('wishlist')" title="Wishlist">
+                    <svg viewBox="0 0 24 24" class="icon-svg"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+                    <span class="util-badge" id="wishlist-counter">0</span>
+                </button>
+                <!-- Full-Page Cart Segment Trigger -->
+                <button class="util-btn" id="nav-btn-cart" onclick="toggleViewSegment('cart')" title="Shopping Bag">
+                    <svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+                    <span class="util-badge" id="cart-counter">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Viewport Segments Section -->
+    <div class="main-app-viewport">
+        
+        <!-- SEGMENT A: CORE CATALOG MATRIX SYSTEM -->
+        <div id="view-catalog" class="view-segment visible">
+            <section class="hero-showcase">
+                <div class="hero-content">
+                    <span class="hero-badge">PREMIUM CAPSULE DROP // 01</span>
+                    <h1 class="gradient-text">Designs That Hit Hard.<br>Mindsets Harder.</h1>
+                    <p class="hero-sub">🎭 Slapping old mindsets & double standards. Daily. // Wear the rebellion.</p>
+                </div>
+            </section>
+
+            <main class="store-mainframe">
+                <div class="store-layout-inner">
+                    <aside class="left-sidebar-navigation">
+                        <div class="sidebar-sticky-box">
+                            <span class="sidebar-title">// MATERIAL INDEX</span>
+                            <nav class="sidebar-menu-list" id="category-nav"></nav>
+                        </div>
+                    </aside>
+                    <div class="catalog-container">
+                        <div class="catalog-grid" id="product-grid"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- SEGMENT B: TRACK ORDER STATUS INTERFACE -->
+        <div id="view-track" class="view-segment">
+            <section class="view-hero-header">
+                <span class="view-indicator">// LIVE DESPATCH ROADMAP</span>
+                <h2>Track Operational Orders</h2>
+                <p>Simulating live logistics pipeline hand-offs from our decentralized Print On Demand India hubs[cite: 1].</p>
+            </section>
+            <div class="segmented-interface-box">
+                <div class="tracking-system-grid">
+                    <div class="tracking-column">
+                        <h3 class="status-heading pending">// PENDING_VERIFICATION</h3>
+                        <div id="pending-orders-list" class="order-status-stack"></div>
+                    </div>
+                    <div class="tracking-column">
+                        <h3 class="status-heading completed">// COMPLETED_DISPATCH</h3>
+                        <div id="completed-orders-list" class="order-status-stack"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEGMENT C: WISHLIST ARCHIVE -->
+        <div id="view-wishlist" class="view-segment">
+            <section class="view-hero-header">
+                <span class="view-indicator">// STASH_ROOM</span>
+                <h2>Your Curated Wishlist</h2>
+                <p>Pieces reserved for future deployment cycles.</p>
+            </section>
+            <div class="segmented-interface-box">
+                <div class="catalog-grid" id="wishlist-grid"></div>
+            </div>
+        </div>
+
+        <!-- SEGMENT D: FULL-PAGE SHOPPING CART MANIFEST -->
+        <div id="view-cart" class="view-segment">
+            <section class="view-hero-header">
+                <span class="view-indicator">// CONSOLIDATED_BAG</span>
+                <h2>Shopping Cart Manifest</h2>
+                <p>Verify parameters prior to routing order string generation directly to WhatsApp.</p>
+            </section>
+            <div class="segmented-interface-box cart-page-layout">
+                <div id="cart-items-container" class="cart-items-list"></div>
+                <div id="cart-summary-block" class="cart-summary-panel"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Trust Propositions -->
+    <section class="trust-proposition-banner">
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-icon">📦</div>
+                <h3>100% Cotton Premium Base</h3>
+                <p>Bio-washed, pre-shrunk, super-combed luxury fabrics sourced directly for maximum lifestyle durability[cite: 1].</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">🛡️</div>
+                <h3>Secure Hand-off Checks</h3>
+                <p>Orders are verified directly via our private business routing desk to eliminate online retail automated errors[cite: 1].</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">🚀</div>
+                <h3>Pan-India Express Logistics</h3>
+                <p>Dispatched directly from state-of-the-art print units straight to your doorstep with end-to-end milestone tracking[cite: 1].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto About Section -->
+    <section class="manifesto-about-section" id="about-us">
+        <div class="about-grid">
+            <div class="about-visual"><div class="brand-crest-box"><span>TBZ</span></div></div>
+            <div class="about-copy">
+                <span class="section-indicator">// THE ORIGIN MANIFESTO</span>
+                <h2>We didn't come to create just another apparel label.</h2>
+                <p class="highlight-p">Tamachebaaz is a digital collective born out of a stark, dry corporate office life culture—designed explicitly for the rebels hidden behind spreadsheets, dev desks, and system monitors.</p>
+                <p>We saw the retail market flooded with generic, safe graphics that say absolutely nothing. Tamachebaaz is a direct slap to old mindsets, corporate hypocrisies, and systemic double standards. Every capsule drop features uncompromising heavyweight fabrics wrapped in deadpan, clinical wit. Wear the attitude, disrupt the system.</p>
+                <div class="about-stats-row">
+                    <div class="stat-box"><h4>100%</h4><p>Premium Cotton Material[cite: 1]</p></div>
+                    <div class="stat-box"><h4>240+</h4><p>French Terry Heavyweights[cite: 1]</p></div>
+                    <div class="stat-box"><h4>0%</h4><p>Double Standards Tolerated</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Options Drawer -->
+    <div id="product-drawer" class="drawer">
+        <div class="drawer-glass-panel">
+            <button class="close-drawer" onclick="closeDrawer()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M13 1L1 13M1 1L13 13" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>CLOSE_VIEW</span>
+            </button>
+            
+            <div class="drawer-body">
+                <div class="drawer-visual-wrapper">
+                    <div class="glass-card-preview" id="drawer-preview-box">
+                        <div class="inner-glow"></div>
+                        <span id="drawer-visual-text">TAMACHEBAAZ</span>
+                    </div>
+                </div>
+                
+                <div class="drawer-info">
+                    <h2 id="drawer-title">PRODUCT TITLE</h2>
+                    <span class="drawer-specs-tag" id="drawer-spec">SPEC SUMMARY</span>
+                    
+                    <div class="options-container">
+                        <div class="option-row">
+                            <label>Premium Colorway Selector</label>
+                            <div class="color-flex" id="color-options"></div>
+                        </div>
+                        <div class="option-row">
+                            <div class="size-label-row">
+                                <label>Select Your Fit Size</label>
+                                <button class="size-chart-trigger" onclick="toggleInlineSizeChart()">📐 VIEW_SIZE_GUIDE</button>
+                            </div>
+                            <div class="pill-selector" id="size-options"></div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Functional Size Chart Component Block -->
+                    <div id="inline-size-chart" class="size-chart-matrix-panel">
+                        <p class="chart-type-title" id="chart-profile-title">STANDARD RATIO SCALES</p>
+                        <table class="brutalist-table">
+                            <thead>
+                                <tr><th>SIZE</th><th>CHEST (IN)</th><th>LENGTH (IN)</th></tr>
+                            </thead>
+                            <tbody id="size-chart-rows"></tbody>
+                        </table>
+                        <p class="chart-disclaimer">*Measurements may vary up to 1 inch (+ or -)[cite: 1]. If unsure, scale up[cite: 1].</p>
+                    </div>
+
+                    <div class="purchase-action-box">
+                        <div class="drawer-pricing">
+                            <span class="price-lbl">TOTAL PRICE</span>
+                            <div class="price-val">₹<span id="drawer-price">0</span></div>
+                            <span class="price-tax">*Excl. GST, Tag & Pack added[cite: 1]</span>
+                        </div>
+                        <button class="checkout-btn" id="drawer-add-to-bag-btn" onclick="addItemToCart()">
+                            <span id="drawer-btn-text">ADD TO BAG</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Footer Matrix with Social Links Matrix -->
+    <footer class="site-footer">
+        <div class="footer-top-matrix">
+            <div class="footer-column brand-column">
+                <h3>TAMACHEBAAZ</h3>
+                <p class="brand-desc-footer">Premium streetwear architecture crafted for mindsets that hit harder. Breaking retail parameters with deadpan humor, sharp aesthetics, and multi-gauge fabrics.</p>
+                
+                <!-- Polished SVG Icons Matrix -->
+                <div class="social-links-flex">
+                    <a href="https://facebook.com" target="_blank" class="social-icon-btn" title="Facebook">
+                        <svg viewBox="0 0 24 24" class="soc-svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">
+                        <svg viewBox="0 0 24 24" class="soc-svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube">
+                        <svg viewBox="0 0 24 24" class="soc-svg"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z" fill="currentColor"/><path d="M10 11.75l4.83-2.87L10 6.02v5.73z" fill="#020205"/></svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" class="social-icon-btn" title="X (Twitter)">
+                        <svg viewBox="0 0 24 24" class="soc-svg"><path d="M18.244 2.25h3.308l-7.227 7.75 8.502 11.75h-6.653l-5.214-6.817L4.99 21.75H1.68l7.73-8.286L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>THE CAPSULE DROPS</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="triggerNavFilter('T-Shirt 180GSM')">Classic 180GSM Shirts</a></li>
+                    <li><a href="#" onclick="triggerNavFilter('Oversized 240GSM')">Heavy 240GSM Tops</a></li>
+                    <li><a href="#" onclick="triggerNavFilter('French Terry 240GSM')">French Terry Shirts</a></li>
+                    <li><a href="#" onclick="triggerNavFilter('Oversized Hoodie')">Oversized Hoodies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>CUSTOMER POLICY ENGINE</h4>
+                <ul class="footer-links">
+                    <li><a href="#about-us">Our Origin Story</a></li>
+                    <li><a href="#" onclick="alert('Shipping Policy: Dispatched within 48-72 business hours via custom express logistics channels.')">Shipping Parameters</a></li>
+                    <li><a href="#" onclick="alert('Returns: Products are tailored per selection configurations. Replacement generated if item arrives structurally damaged.')">Return Guidelines</a></li>
+                    <li><a href="#" onclick="alert('Verification Base: 24/7 dedicated automated dispatch support lines mapped straight to production arrays.')">Corporate Help</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-column">
+                <h4>DISPATCH BASE</h4>
+                <p class="contact-line"><strong>Primary Hotline:</strong> +91 895895 8484</p>
+                <p class="contact-line"><strong>E-Mail Communications:</strong> ops@tamachebaaz.com</p>
+                <p class="contact-line"><strong>Production Hub:</strong> India (Print On Demand India Network)[cite: 1]</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>© 2026 TAMACHEBAAZ CLOTHING STUDIO. SECURE LOCAL ENVIRONMENT.</p>
+            <div class="payment-trust-badges">
+                <span>UPI SECURE</span>
+                <span>RAZORPAY VERIFIED</span>
+                <span>CASHFREE NETWORKS</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
